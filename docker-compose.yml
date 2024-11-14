@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest # Specifies the MongoDB image to use (latest version)
+    container_name: mongodb # Names the container 'mongodb'
+    ports:
+      - '27017:27017' # Maps port 27017 on the host machine to port 27017 in the container (default MongoDB port)
+    volumes:
+      - ./data:/data/db # Mounts the ./data directory on the host to /data/db inside the container, storing MongoDB data outside the container
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root # Sets the MongoDB root username to 'root'
+      MONGO_INITDB_ROOT_PASSWORD: password # Sets the MongoDB root password to 'password'
